@@ -1,6 +1,7 @@
 import pickle
 import pyelliptic
 
+
 class cucumber:
 
     def __init__(self, x):
@@ -8,21 +9,14 @@ class cucumber:
         
     def get_x(self):
         return self.x
-        
+key = pyelliptic.ecc()   
+
+
 a = cucumber(10)
-key = pyelliptic.ecc()
-
-name = 'sample.pk1'
-
-output = open(name, 'wb')
-b = pickle.dumps(a)
-output.close()
-
-print(b)
-
-cipher = key.encrypt(b, pubkey=key.get_pubkey())
+cereal = pickle.dumps(a)
+print(cereal)
+cipher = key.encrypt(cereal, pubkey=key.get_pubkey())
 print(cipher)
-
 print(key.decrypt(cipher))
 
 
